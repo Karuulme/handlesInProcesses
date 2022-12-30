@@ -33,6 +33,7 @@ typedef  NTSTATUS(NTAPI* _NtQueryObject)(
 	ULONG     ObjectInformationLength,
 	PULONG    ReturnLength
 	);
+
 typedef struct _SYSTEM_HANDLE_TABLE_ENTRY_INFO
 {
 	ULONG ProcessId;
@@ -90,17 +91,13 @@ typedef struct _OBJECT_TYPE_INFORMATION
 	ULONG NonPagedPoolUsage;
 } OBJECT_TYPE_INFORMATION, * POBJECT_TYPE_INFORMATION;
 
-
-
-
-
-
-
-
-
-
-
-
+enum OBJECT_INFORMATION_CLASS
+{
+	ObjectBasic  = 0,
+	ObjectName   = 1,
+	ObjectType   = 2,
+	ObjectHandle = 16
+};
 
 
 
