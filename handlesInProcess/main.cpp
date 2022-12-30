@@ -1,11 +1,11 @@
-﻿#include "kaynak.cpp"
+﻿#include "library.cpp"
 #include <Processthreadsapi.h>
 int main() {
 	_NtQuerySystemInformation NtQuerySystemInformation = (_NtQuerySystemInformation)GetProcAddress(GetModuleHandleA("ntdll.dll"), "NtQuerySystemInformation");
 	_NtDuplicateObject NtDuplicateObject = (_NtDuplicateObject)GetProcAddress(GetModuleHandleA("ntdll.dll"), "NtDuplicateObject");
 	_NtQueryObject NtQueryObject = (_NtQueryObject)GetProcAddress(GetModuleHandleA("ntdll.dll"), "NtQueryObject");
 
-	int pid=17572;
+	int pid=3696;
 	HANDLE processHandle=OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
 	PSYSTEM_HANDLE_INFORMATION handleLis = (PSYSTEM_HANDLE_INFORMATION)malloc(sizeof(PSYSTEM_HANDLE_INFORMATION));
 	NTSTATUS ntStatus = STATUS_INFO_LENGTH_MISMATCH;
@@ -59,7 +59,18 @@ int main() {
 			CloseHandle(dupHan);
 		}	
 	}
-	free(handleLis);
+
+	//free(handleLis);
 	CloseHandle(processHandle);
 	return 0;
 }
+
+/*
+http://undocumented.ntinternals.net/index.html?page=UserMode%2FUndocumented%20Functions%2FNT%20Objects%2FType%20independed%2FNtQueryObject.html
+https://learn.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntqueryobject
+https://learn.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/nf-ntifs-zwduplicateobject
+https://github.com/Zer0Mem0ry/WindowsNT-Handle-Scanner/blob/master/FindHandles/main.cpp
+https://cplusplus.com/forum/windows/95774/
+https://www.geoffchappell.com/studies/windows/km/ntoskrnl/api/ex/sysinfo/query.htm
+
+*/

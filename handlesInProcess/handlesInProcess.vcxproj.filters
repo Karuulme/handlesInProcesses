@@ -18,10 +18,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="handlesInProcess.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Kaynak Dosyalar</Filter>
     </ClCompile>
-    <ClCompile Include="Kaynak.cpp">
+    <ClCompile Include="library.cpp">
       <Filter>Kaynak Dosyalar\Library</Filter>
     </ClCompile>
   </ItemGroup>

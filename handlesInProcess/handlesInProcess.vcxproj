@@ -127,8 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="handlesInProcess.cpp" />
-    <ClCompile Include="Kaynak.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="library.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
